@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:9.6
+    environment: 
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      - '5432:5432'
+  app:
+    depends_on:
+      - 'db'
+    build: .
+    command: bundle exec rails s -p 4000 -b '0.0.0.0'
+    ports:
+      - '4000:4000'
+    volumes:
+      - '.:/app'  
+
