@@ -14,5 +14,10 @@ production:
   database: reddit_clone_prod
   
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: maynardcabalitan
+  password: 
   database: reddit_clone_test
+
